@@ -9,10 +9,12 @@ from .filters import *
 def homePage(request):
     seminars_count = Seminar.objects.all().count()
     workshops_count = Workshop.objects.all().count()
+    skills_count = Skill.objects.all().count()
 
     context = {
         'seminars_count': seminars_count,
         'workshops_count': workshops_count,
+        'skills_count': skills_count,
     }
     return render(request, 'home.html', context)
 
