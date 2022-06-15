@@ -2,19 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d51312d6-6dbe-4d9e-bf9a-abcc1fd6c90d" name="Changes" comment="renaming">
-      <change afterPath="$PROJECT_DIR$/RMSapp/static/js/main.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RMSapp/static/js/register.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RMSapp/templates/base_auth.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RMSapp/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RMSapp/templates/profile.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RMSapp/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/add_skill.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/edit_skill.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/view_skill.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/USM-GS_RMS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/USM-GS_RMS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RMS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMS/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/0005_rename_first_name_seminar_address_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/0006_remove_seminar_date_ended_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/filters.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/filters.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/templates/add_seminar.html" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/templates/add_seminar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/templates/add_workshop.html" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/templates/add_workshop.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RMSapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/templates/sidebar.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RMSapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/RMSapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
@@ -24,16 +23,27 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="2Ac5SUj6BtlGt8WdXuhKsSq56kZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ChangesTree.GroupingKeys" value="" />
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/RMSapp/templates" />
@@ -118,6 +128,18 @@
     </task>
     <option name="localTasksCounter" value="10" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="renaming" />

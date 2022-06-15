@@ -36,3 +36,18 @@ class Workshop(models.Model):
         name = self.title
         return name
 
+class Skill(models.Model):
+    class Meta:
+        verbose_name_plural = 'Skill'
+
+    title = models.CharField(max_length=200, null=False, blank=False)
+    address = models.CharField(max_length=200, null=False, blank=False)
+    conducted = models.CharField(max_length=200, null=False, blank=False)
+    date_started = models.CharField(max_length=200, null=False, blank=False)
+    date_ended = models.CharField(max_length=200, null=False, blank=False)
+    time_duration = models.CharField(max_length=200, null=False, blank=False)
+    seminar_type = models.CharField(max_length=200, null=False, blank=False)
+
+    def __str__(self):
+        name = self.title
+        return name

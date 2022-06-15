@@ -6,7 +6,6 @@ from django.contrib import auth
 from .filters import *
 
 
-
 def homePage(request):
     seminars_count = Seminar.objects.all().count()
     workshops_count = Workshop.objects.all().count()
@@ -28,7 +27,8 @@ def addSeminar(request):
         time_duration = request.POST['time_duration']
         seminar_type = request.POST['seminar_type']
 
-        saveSeminar = Seminar(title=title, address=address, conducted=conducted, date_started=date_started, date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
+        saveSeminar = Seminar(title=title, address=address, conducted=conducted, date_started=date_started,
+                              date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
         saveSeminar.save()
         messages.info(request, 'Added Successfully!')
 
@@ -44,11 +44,29 @@ def addWorkshop(request):
         date_ended = request.POST['date_ended']
         time_duration = request.POST['time_duration']
         seminar_type = request.POST['seminar_type']
-        saveWorkshop = Workshop(title=title, address=address, conducted=conducted, date_started=date_started, date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
+        saveWorkshop = Workshop(title=title, address=address, conducted=conducted, date_started=date_started,
+                                date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
         saveWorkshop.save()
         messages.info(request, 'Added Successfully!')
 
     return render(request, 'add_workshop.html', )
+
+
+def addSkill(request):
+    if request.method == 'POST':
+        title = request.POST['title']
+        address = request.POST['address']
+        conducted = request.POST['conducted']
+        date_started = request.POST['date_started']
+        date_ended = request.POST['date_ended']
+        time_duration = request.POST['time_duration']
+        seminar_type = request.POST['seminar_type']
+        saveSkill = Skill(title=title, address=address, conducted=conducted, date_started=date_started,
+                          date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
+        saveSkill.save()
+        messages.info(request, 'Added Successfully!')
+
+    return render(request, 'add_skill.html', )
 
 
 def viewSeminar(request):
@@ -64,8 +82,8 @@ def viewSeminar(request):
 
 
 def viewWorkshop(request):
-    faculties = Workshop.objects.all()
-    workshopFilter = WorkshopFilter(request.GET, queryset=faculties)
+    workshops = Workshop.objects.all()
+    workshopFilter = WorkshopFilter(request.GET, queryset=workshops)
     workshops = workshopFilter.qs
 
     context = {
@@ -73,6 +91,18 @@ def viewWorkshop(request):
         'workshopFilter': workshopFilter
     }
     return render(request, 'view_workshop.html', context)
+
+
+def viewSkill(request):
+    skills = Workshop.objects.all()
+    skillFilter = WorkshopFilter(request.GET, queryset=skills)
+    skills = skillFilter.qs
+
+    context = {
+        'skills': skills,
+        'skillFilter': skillFilter
+    }
+    return render(request, 'view_skill.html', context)
 
 
 def editSeminar(request, seminarId):
@@ -87,6 +117,15 @@ def editWorkshop(request, workshopId):
         'workshopItem': workshopItem,
     }
     return render(request, 'edit_workshop.html', context)
+
+
+def editSkill(request, skillId):
+    skillItem = Skill.objects.get(id=skillId)
+
+    context = {
+        'skillItem': skillItem,
+    }
+    return render(request, 'edit_skill.html', context)
 
 
 def updateSeminar(request, seminarId):
@@ -119,6 +158,21 @@ def updateWorkshop(request, workshopId):
     return redirect(viewWorkshop)
 
 
+def updateSkill(request, skillId):
+    skillItem = Skill.objects.get(id=skillId)
+    skillItem.title = request.POST['title']
+    skillItem.address = request.POST['address']
+    skillItem.conducted = request.POST['conducted']
+    skillItem.date_started = request.POST['date_started']
+    skillItem.date_ended = request.POST['date_ended']
+    skillItem.time_duration = request.POST['time_duration']
+    skillItem.seminar_type = request.POST['seminar_type']
+    skillItem.save()
+    messages.info(request, 'Updated Successfully!')
+
+    return redirect(viewSkill)
+
+
 def deleteSeminar(request, seminarId):
     seminarItem = Seminar.objects.get(id=seminarId)
     seminarItem.delete()
@@ -135,10 +189,18 @@ def deleteWorkshop(request, workshopId):
     return redirect(viewWorkshop)
 
 
+def deleteSkill(request, skillId):
+    skillItem = Skill.objects.get(id=skillId)
+    skillItem.delete()
+    messages.info(request, 'Deleted Successfully!')
+
+    return redirect(viewSkill)
+
 
 class RegistrationView(View):
     def get(self, request):
         return render(request, 'register.html')
+
     def post(self, request):
 
         username = request.POST['username']
@@ -155,7 +217,7 @@ class RegistrationView(View):
                     messages.error(request, 'Password too short')
                     return render(request, 'register.html', context)
 
-                user = User.objects.create_user(username=username, email=email )
+                user = User.objects.create_user(username=username, email=email)
                 user.set_password(password)
                 user.save()
 
@@ -164,26 +226,27 @@ class RegistrationView(View):
 
 
 class LoginView(View):
-        def get(self, request):
-            return render(request, 'login.html')
+    def get(self, request):
+        return render(request, 'login.html')
 
-        def post(self, request):
+    def post(self, request):
 
-            username = request.POST['username']
-            password = request.POST['password']
+        username = request.POST['username']
+        password = request.POST['password']
 
-            if username and password:
-                user = auth.authenticate(username=username, password=password)
+        if username and password:
+            user = auth.authenticate(username=username, password=password)
 
-                if user:
-                    auth.login(request, user)
-                    messages.success(request, 'Welcome, ' + user.username + ' you are now logged in')
-                return redirect('home')
+            if user:
+                auth.login(request, user)
+                messages.success(request, 'Welcome, ' + user.username + ' you are now logged in')
+            return redirect('home')
 
-            messages.error(
-                request, 'Please fill all fields')
-            return render(request, 'login.html')
+        messages.error(
+            request, 'Please fill all fields')
+        return render(request, 'login.html')
+
 
 class ProfileView(View):
-    def get (self, request):
+    def get(self, request):
         return render(request, 'profile.html')

@@ -11,3 +11,8 @@ class WorkshopFilter(django_filters.FilterSet):
         model = Workshop
         fields = ['title']
 
+class SkillFilter(django_filters.FilterSet):
+    class Meta:
+        model = Skill
+        fields = ['title']
+

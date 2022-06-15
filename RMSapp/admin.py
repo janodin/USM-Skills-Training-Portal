@@ -5,3 +5,4 @@ from RMSapp.models import *
 
 admin.site.register(Seminar)
 admin.site.register(Workshop)
+admin.site.register(Skill)

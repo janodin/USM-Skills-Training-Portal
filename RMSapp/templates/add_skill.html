@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Add Seminar{% endblock %}
+{% block title %}Add Skill{% endblock %}
 
 {% block content %}
 
@@ -10,8 +10,8 @@
 
     <div class="card card-body mt-3">
         <div class="mb-3">
-            <h4 class="d-inline">ADD WORKSHOP</h4>
-            <a href="{% url 'view_workshop' %}" class="btn btn-sm btn-primary d-inline float-end">View Workshop</a>
+            <h4 class="d-inline">ADD SKILL</h4>
+            <a href="{% url 'view_skill' %}" class="btn btn-sm btn-primary d-inline float-end">View Skill</a>
         </div>
         {% for message in messages %}
         <p class="alert alert-success">{{message}}</p>
@@ -19,7 +19,7 @@
         <form class="card card-body" method="POST">
             {% csrf_token %}
 
-            <h6 class="card-header bg-success">Workshop Details</h6>
+            <h6 class="card-header bg-success">Skill Details</h6>
             <div class="card-body row g-3">
 
                 <div class="col-13">
@@ -51,8 +51,8 @@
                 </div>
 
                 <div class="col-md-6">
-                    <label for="workshopOption" class="form-label col-form-label-sm">Workshop Type</label>
-                    <select id="workshopOption" class="form-select form-select-sm" name="seminar_type" required>
+                    <label for="skillOption" class="form-label col-form-label-sm">Skill Type</label>
+                    <select id="skillOption" class="form-select form-select-sm" name="skill_type" required>
                         <option selected>Choose...</option>
                         <option>Managerial</option>
                         <option>Supervisory</option>
@@ -66,7 +66,7 @@
                 </div>
 
             </div>
-            <button type="submit" class="btn btn-primary btn-sm mt-2">Add Workshop</button>
+            <button type="submit" class="btn btn-primary btn-sm mt-2">Add Skill</button>
         </form>
     </div>
 </div>
