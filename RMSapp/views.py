@@ -9,13 +9,13 @@ from .filters import *
 def homePage(request):
     courses_count = Course.objects.all().count()
     seminars_count = Seminar.objects.all().count()
-    faculties_count = Workshop.objects.all().count()
+    workshops_count = Workshop.objects.all().count()
     schedules_count = Schedule.objects.all().count()
 
     context = {
         'courses_count': courses_count,
         'seminars_count': seminars_count,
-        'faculties_count': faculties_count,
+        'workshops_count': workshops_count,
         'schedules_count': schedules_count,
     }
     return render(request, 'home.html', context)
@@ -98,10 +98,10 @@ def viewSeminar(request):
 def viewWorkshop(request):
     faculties = Workshop.objects.all()
     workshopFilter = WorkshopFilter(request.GET, queryset=faculties)
-    faculties = workshopFilter.qs
+    workshops = workshopFilter.qs
 
     context = {
-        'faculties': faculties,
+        'workshops': workshops,
         'workshopFilter': workshopFilter
     }
     return render(request, 'view_workshop.html', context)
