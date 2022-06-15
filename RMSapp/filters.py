@@ -9,7 +9,7 @@ class CourseFilter(django_filters.FilterSet):
 class SeminarFilter(django_filters.FilterSet):
     class Meta:
         model = Seminar
-        fields = ['first_name', 'last_name']
+        fields = ['title', 'conducted']
 
 class WorkshopFilter(django_filters.FilterSet):
     class Meta:
