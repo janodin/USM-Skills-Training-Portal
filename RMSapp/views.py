@@ -1,9 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.views import View
+from django.contrib.auth.models import User
+from django.contrib import auth
 from .filters import *
 
-
-# Create your views here.
 
 
 def homePage(request):
@@ -132,3 +133,57 @@ def deleteWorkshop(request, workshopId):
     messages.info(request, 'Deleted Successfully!')
 
     return redirect(viewWorkshop)
+
+
+
+class RegistrationView(View):
+    def get(self, request):
+        return render(request, 'register.html')
+    def post(self, request):
+
+        username = request.POST['username']
+        email = request.POST['email']
+        password = request.POST['password']
+
+        context = {
+            'fieldValues': request.POST
+        }
+
+        if not User.objects.filter(username=username).exists():
+            if not User.objects.filter(email=email).exists():
+                if len(password) < 6:
+                    messages.error(request, 'Password too short')
+                    return render(request, 'register.html', context)
+
+                user = User.objects.create_user(username=username, email=email )
+                user.set_password(password)
+                user.save()
+
+                messages.success(request, 'you have successfully created an account')
+                return render(request, 'login.html', context)
+
+
+class LoginView(View):
+        def get(self, request):
+            return render(request, 'login.html')
+
+        def post(self, request):
+
+            username = request.POST['username']
+            password = request.POST['password']
+
+            if username and password:
+                user = auth.authenticate(username=username, password=password)
+
+                if user:
+                    auth.login(request, user)
+                    messages.success(request, 'Welcome, ' + user.username + ' you are now logged in')
+                return redirect('home')
+
+            messages.error(
+                request, 'Please fill all fields')
+            return render(request, 'login.html')
+
+class ProfileView(View):
+    def get (self, request):
+        return render(request, 'profile.html')
