@@ -43,17 +43,28 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Firs Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Date Started</th>
+                    <th scope="col">Date Ended</th>
+                    <th scope="col">Time duration</th>
+                    <th scope="col">Seminar Type</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Conducted by</th>
+
                 </tr>
                 </thead>
                 <tbody>
                 {% for seminar in seminars%}
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
-                    <td>{{seminar.first_name}}</td>
-                    <td>{{seminar.last_name}}</td>
+
+                    <td>{{seminar.title}}</td>
+                    <td>{{seminar.date_started}}</td>
+                    <td>{{seminar.date_ended}}</td>
+                     <td>{{seminar.time_duration}}</td>
+                     <td>{{seminar.seminar_type}}</td>
+                    <td>{{seminar.address}}</td>
+                     <td>{{seminar.conducted}}</td>
                     <td><a href="{% url 'edit_seminar' seminar.id %}" class="btn btn-primary btn-sm">View</a>
                         <a href="{% url 'delete_seminar' seminar.id %}" class="btn btn-danger btn-sm">Delete</a>
                     </td>

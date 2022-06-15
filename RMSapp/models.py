@@ -1,5 +1,6 @@
 from django.db import models
 
+from django.utils.timezone import now
 
 # Create your models here.
 
@@ -19,11 +20,16 @@ class Seminar(models.Model):
     class Meta:
         verbose_name_plural = 'Seminar'
 
-    first_name = models.CharField(max_length=200, null=False, blank=False)
-    last_name = models.CharField(max_length=200, null=False, blank=False)
+    title = models.CharField(max_length=200, null=False, blank=False)
+   ## date_started = models.DateField(max_length=200, null=False, blank=False)
+   ## date_ended = models.DateField(max_length=200, null=False, blank=False)
+   ## time_duration = models.TimeField(max_length=200, null=False, blank=False)
+    seminar_type = models.CharField(max_length=200, null=False, blank=False)
+    address = models.CharField(max_length=200, null=False, blank=False)
+    conducted = models.CharField(max_length=200, null=False, blank=False)
 
     def __str__(self):
-        name = self.first_name + ' ' + self.last_name
+        name = self.title + ' ' + self.conducted
         return name
 
 
