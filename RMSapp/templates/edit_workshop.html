@@ -11,7 +11,7 @@
 
     <div class="card card-body mt-3">
         <div class="mb-3">
-            <h4 class="d-inline">VIEW FACULTY</h4>
+            <h4 class="d-inline">VIEW WORKSHOP</h4>
         </div>
 
         <form class="card card-body" action="{% url 'update_workshop' workshopItem.id %}" method="POST">
@@ -20,22 +20,41 @@
             <h6 class="card-header bg-success">Viewing Workshop</h6>
             <div class="card-body row g-3">
                 <div class="col-12">
-                    <label class="form-label col-form-label-sm">First Name</label>
-                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.first_name}}"
-                           name="first_name">
+                    <label class="form-label col-form-label-sm">Title</label>
+                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.title}}"
+                           name="title">
                 </div>
                 <div class="col-12">
-                    <label class="form-label col-form-label-sm">Last Name</label>
-                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.last_name}}"
-                           name="last_name">
+                    <label class="form-label col-form-label-sm">Address</label>
+                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.address}}"
+                           name="address">
                 </div>
                 <div class="col-12">
-                    <label for="subjectOption" class="form-label col-form-label-sm">Subject Handled</label>
-                    <select id="subjectOption" class="form-select form-select-sm" value="{{workshopItem.subject_handled}}"
-                            name="subject_handled">
-                        {% for subjectOption in subjectOptions %}
-                        <option>{{subjectOption}}</option>
-                        {% endfor %}
+                    <label class="form-label col-form-label-sm">Conducted by</label>
+                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.conducted}}"
+                           name="conducted">
+                </div>
+                <div class="col-12">
+                    <label class="form-label col-form-label-sm">Date Started</label>
+                    <input type="date" class="form-control form-control-sm" value="{{workshopItem.date_started}}"
+                           name="date_started">
+                </div>
+                <div class="col-12">
+                    <label class="form-label col-form-label-sm">Date Ended</label>
+                    <input type="date" class="form-control form-control-sm" value="{{workshopItem.date_ended}}"
+                           name="date_ended">
+                </div>
+                <div class="col-12">
+                    <label class="form-label col-form-label-sm">Time Duration</label>
+                    <input type="time" class="form-control form-control-sm" value="{{workshopItem.time_duration}}"
+                           name="time_duration">
+                </div>
+                <div class="col-12">
+                    <label class="form-label col-form-label-sm">Seminar Type</label>
+                    <select class="form-select form-select-sm" value="{{workshopItem.seminar_type}}" name="seminar_type">
+                        <option>Managerial</option>
+                        <option>Supervisory</option>
+                        <option>Technical</option>
                     </select>
                 </div>
             </div>

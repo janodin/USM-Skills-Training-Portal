@@ -19,9 +19,15 @@ def homePage(request):
 
 def addSeminar(request):
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        saveSeminar = Seminar(first_name=first_name, last_name=last_name)
+        title = request.POST['title']
+        address = request.POST['address']
+        conducted = request.POST['conducted']
+        date_started = request.POST['date_started']
+        date_ended = request.POST['date_ended']
+        time_duration = request.POST['time_duration']
+        seminar_type = request.POST['seminar_type']
+
+        saveSeminar = Seminar(title=title, address=address, conducted=conducted, date_started=date_started, date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
         saveSeminar.save()
         messages.info(request, 'Added Successfully!')
 
@@ -30,10 +36,14 @@ def addSeminar(request):
 
 def addWorkshop(request):
     if request.method == 'POST':
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        subject_handled = request.POST['subject_handled']
-        saveWorkshop = Workshop(first_name=first_name, last_name=last_name, subject_handled=subject_handled)
+        title = request.POST['title']
+        address = request.POST['address']
+        conducted = request.POST['conducted']
+        date_started = request.POST['date_started']
+        date_ended = request.POST['date_ended']
+        time_duration = request.POST['time_duration']
+        seminar_type = request.POST['seminar_type']
+        saveWorkshop = Workshop(title=title, address=address, conducted=conducted, date_started=date_started, date_ended=date_ended, time_duration=time_duration, seminar_type=seminar_type)
         saveWorkshop.save()
         messages.info(request, 'Added Successfully!')
 
@@ -80,8 +90,13 @@ def editWorkshop(request, workshopId):
 
 def updateSeminar(request, seminarId):
     seminarItem = Seminar.objects.get(id=seminarId)
-    seminarItem.first_name = request.POST['f_name']
-    seminarItem.last_name = request.POST['l_name']
+    seminarItem.title = request.POST['title']
+    seminarItem.address = request.POST['address']
+    seminarItem.conducted = request.POST['conducted']
+    seminarItem.date_started = request.POST['date_started']
+    seminarItem.date_ended = request.POST['date_ended']
+    seminarItem.time_duration = request.POST['time_duration']
+    seminarItem.seminar_type = request.POST['seminar_type']
     seminarItem.save()
     messages.info(request, 'Updated Successfully!')
 
@@ -90,9 +105,13 @@ def updateSeminar(request, seminarId):
 
 def updateWorkshop(request, workshopId):
     workshopItem = Workshop.objects.get(id=workshopId)
-    workshopItem.first_name = request.POST['first_name']
-    workshopItem.last_name = request.POST['last_name']
-    workshopItem.subject_handled = request.POST['subject_handled']
+    workshopItem.title = request.POST['title']
+    workshopItem.address = request.POST['address']
+    workshopItem.conducted = request.POST['conducted']
+    workshopItem.date_started = request.POST['date_started']
+    workshopItem.date_ended = request.POST['date_ended']
+    workshopItem.time_duration = request.POST['time_duration']
+    workshopItem.seminar_type = request.POST['seminar_type']
     workshopItem.save()
     messages.info(request, 'Updated Successfully!')
 

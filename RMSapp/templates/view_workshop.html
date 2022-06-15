@@ -10,26 +10,18 @@
 
 <div class="content mt-3">
     <div class="card card-body mt-3">
-        <h4 class="mb-3">VIEW FACULTY</h4>
+        <h4 class="mb-3">VIEW WORKSHOP</h4>
         {% for message in messages %}
         <p class="alert alert-success">{{message}}</p>
         {% endfor %}
 
         <div class="card card-body">
             <form method="GET">
-                <h6 class="text-muted">Filter by:</h6>
+                <h6 class="text-muted">Search for Title:</h6>
                 <div class="row">
-                    <div class="form-group col-3">
-                        <h6>{{ workshopFilter.form.first_name.label_tag }}</h6>
-                        {% render_field workshopFilter.form.first_name class="form-control form-control-sm" %}
-                    </div>
-                    <div class="form-group col-3">
-                        <h6>{{ workshopFilter.form.last_name.label_tag }}</h6>
-                        {% render_field workshopFilter.form.last_name class="form-control form-control-sm" %}
-                    </div>
                     <div class="form-group col-4">
-                        <h6>{{ workshopFilter.form.subject_handled.label_tag }}</h6>
-                        {% render_field workshopFilter.form.subject_handled class="form-control form-control-sm" %}
+                        <h6>{{ workshopFilter.form.title.label_tag }}</h6>
+                        {% render_field workshopFilter.form.title class="form-control form-control-sm" %}
                     </div>
 
                     <div class="col-2">
@@ -47,19 +39,26 @@
                 <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Firs Name</th>
-                    <th scope="col">Last Name</th>
-                    <th scope="col">Subject Handled</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Address</th>
+                    <th scope="col">Conducted by</th>
+                    <th scope="col">Date Started</th>
+                    <th scope="col">Date Ended</th>
+                    <th scope="col">Time Duration</th>
+                    <th scope="col">Seminar Type</th>
                 </tr>
                 </thead>
                 <tbody>
                 {% for workshop in workshops %}
                 <tr>
                     <th scope="row">{{forloop.counter}}</th>
-                    <td>{{workshop.first_name}}</td>
-                    <td>{{workshop.last_name}}</td>
-                    <td>{{workshop.subject_handled}}</td>
+                    <td>{{workshop.title}}</td>
+                    <td>{{workshop.address}}</td>
+                    <td>{{workshop.conducted}}</td>
+                    <td>{{workshop.date_started}}</td>
+                    <td>{{workshop.date_ended}}</td>
+                    <td>{{workshop.time_duration}}</td>
+                    <td>{{workshop.seminar_type}}</td>
                     <td><a href="{% url 'edit_workshop' workshop.id %}" class="btn btn-primary btn-sm">View</a>
                         <a href="{% url 'delete_workshop' workshop.id %}" class="btn btn-danger btn-sm">Delete</a>
                     </td>
