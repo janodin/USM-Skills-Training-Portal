@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+{% include 'sidebar.html' %}
+
+<div class="content mt-5">
+
+    <div class="container">
+        <div class="row ms-5">
+
+            <div class="col-5 ms-5">
+                <div class="card text-center bg-success">
+                    <div class="card-header">
+                        <h5 class="text-light">COURSE</h5>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-light"><i class="fa-solid fa-users-viewfinder me-1"></i>{{ courses_count }}</h1>
+                        <a href="{% url 'view_course' %}" class="btn btn-sm btn-warning">View Course</a>
+                    </div>
+                    <div class="card-footer text-light">
+                        Last modified
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5">
+                <div class="card text-center bg-success">
+                    <div class="card-header">
+                        <h5 class="text-light">STUDENT</h5>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-light"><i class="fa-solid fa-user-group me-1"></i>{{ seminars_count }}</h1>
+                        <a href="{% url 'view_seminar' %}" class="btn btn-sm btn-warning">View Seminar</a>
+                    </div>
+                    <div class="card-footer text-light">
+                        Last modified
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 ms-5 mt-4">
+                <div class="card text-center bg-success">
+                    <div class="card-header">
+                        <h5 class="text-light">FACULTY</h5>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-light"><i class="fa-solid fa-user-check me-1"></i>{{ faculties_count }}</h1>
+                        <a href="{% url 'view_workshop' %}" class="btn btn-sm btn-warning">View Workshop</a>
+                    </div>
+                    <div class="card-footer text-light">
+                        Last modified
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-5 mt-4">
+                <div class="card text-center bg-success">
+                    <div class="card-header">
+                        <h5 class="text-light">SCHEDULE</h5>
+                    </div>
+                    <div class="card-body">
+                        <h1 class="card-title text-light"><i class="fa-solid fa-calendar-days me-1"></i>{{ schedules_count }}</h1>
+                        <a href="{% url 'view_schedule' %}" class="btn btn-sm btn-warning">View Schedule</a>
+                    </div>
+                    <div class="card-footer text-light">
+                        Last modified
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
