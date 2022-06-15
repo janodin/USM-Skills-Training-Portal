@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% block title %}Edit Faculty{% endblock %}
+{% block title %}Edit Workshop{% endblock %}
 
 {% block content %}
 
@@ -14,24 +14,24 @@
             <h4 class="d-inline">VIEW FACULTY</h4>
         </div>
 
-        <form class="card card-body" action="{% url 'update_faculty' facultyItem.id %}" method="POST">
+        <form class="card card-body" action="{% url 'update_workshop' workshopItem.id %}" method="POST">
             {% csrf_token %}
 
-            <h6 class="card-header bg-success">Viewing Faculty</h6>
+            <h6 class="card-header bg-success">Viewing Workshop</h6>
             <div class="card-body row g-3">
                 <div class="col-12">
                     <label class="form-label col-form-label-sm">First Name</label>
-                    <input type="text" class="form-control form-control-sm" value="{{facultyItem.first_name}}"
+                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.first_name}}"
                            name="first_name">
                 </div>
                 <div class="col-12">
                     <label class="form-label col-form-label-sm">Last Name</label>
-                    <input type="text" class="form-control form-control-sm" value="{{facultyItem.last_name}}"
+                    <input type="text" class="form-control form-control-sm" value="{{workshopItem.last_name}}"
                            name="last_name">
                 </div>
                 <div class="col-12">
                     <label for="subjectOption" class="form-label col-form-label-sm">Subject Handled</label>
-                    <select id="subjectOption" class="form-select form-select-sm" value="{{facultyItem.subject_handled}}"
+                    <select id="subjectOption" class="form-select form-select-sm" value="{{workshopItem.subject_handled}}"
                             name="subject_handled">
                         {% for subjectOption in subjectOptions %}
                         <option>{{subjectOption}}</option>
@@ -40,7 +40,7 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn btn-primary btn-sm mt-2">Update Faculty</button>
+            <button type="submit" class="btn btn-primary btn-sm mt-2">Update Workshop</button>
         </form>
     </div>
 </div>
