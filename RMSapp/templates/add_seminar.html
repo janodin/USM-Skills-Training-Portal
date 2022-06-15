@@ -10,7 +10,7 @@
 
     <div class="card card-body mt-3">
         <div class="mb-3">
-            <h4 class="d-inline">ADD STUDENT</h4>
+            <h4 class="d-inline">ADD SEMINAR</h4>
             <a href="{% url 'view_seminar' %}" class="btn btn-sm btn-primary d-inline float-end">View Seminar</a>
         </div>
          {% for message in messages %}
@@ -21,13 +21,18 @@
             <div class="card card-body">
                 <h6 class="card-header bg-success">Seminar Profile</h6>
                 <div class="card-body row g-3">
-                    <div class="col-5">
-                        <label class="form-label col-form-label-sm">First Name</label>
+
+                    <div class="col-13">
+                        <label class="form-label col-form-label-sm">Title</label>
                         <input type="text" class="form-control form-control-sm" name="first_name">
                     </div>
-                    <div class="col-5">
-                        <label class="form-label col-form-label-sm">Last Name</label>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Date started</label>
                         <input type="text" class="form-control form-control-sm" name="last_name">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Date ended</label>
+                        <input type="text" class="form-control form-control-sm" name="date_ended">
                     </div>
                     <div class="col-2">
                         <label class="form-label col-form-label-sm">M.I.</label>
@@ -45,10 +50,9 @@
                         <label for="seminarOption" class="form-label col-form-label-sm">Seminar Type</label>
                         <select id="seminarOption" class="form-select form-select-sm">
                             <option selected>Choose...</option>
-                            <option>New Freshman</option>
-                            <option>Transferee</option>
-                            <option>Old-Continuing</option>
-                            <option>Old-Returning</option>
+                            <option>Managerial</option>
+                            <option>Supervisory</option>
+                            <option>Technical</option>
                         </select>
                     </div>
 
