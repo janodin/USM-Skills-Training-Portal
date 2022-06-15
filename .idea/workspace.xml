@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d51312d6-6dbe-4d9e-bf9a-abcc1fd6c90d" name="Changes" comment="" />
+    <list default="true" id="d51312d6-6dbe-4d9e-bf9a-abcc1fd6c90d" name="Changes" comment="renaming">
+      <change afterPath="$PROJECT_DIR$/RMSapp/static/js/main.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/static/js/register.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/base_auth.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/login.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RMSapp/templates/register.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMS/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMS/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/0001_initial.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/0005_rename_first_name_seminar_address_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/0006_remove_seminar_date_ended_and_more.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/migrations/__init__.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/templates/navbar.html" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/templates/navbar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/RMSapp/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/RMSapp/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,9 +33,16 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ChangesTree.GroupingKeys" value="" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/RMSapp/templates" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Ukoman\Desktop\USM-Skills-Training-Portal\RMSapp\templates" />
+      <recent name="C:\Users\Ukoman\Desktop\USM-Skills-Training-Portal\RMSapp\static" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -78,7 +102,21 @@
       <option name="project" value="LOCAL" />
       <updated>1655307542070</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="renaming">
+      <created>1655307712629</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1655307712629</updated>
+    </task>
+    <task id="LOCAL-00009" summary="renaming">
+      <created>1655308286151</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1655308286151</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
