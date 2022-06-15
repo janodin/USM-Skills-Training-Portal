@@ -8,13 +8,13 @@ from .filters import *
 
 def homePage(request):
     courses_count = Course.objects.all().count()
-    students_count = Student.objects.all().count()
-    faculties_count = Faculty.objects.all().count()
+    seminars_count = Seminar.objects.all().count()
+    faculties_count = Workshop.objects.all().count()
     schedules_count = Schedule.objects.all().count()
 
     context = {
         'courses_count': courses_count,
-        'students_count': students_count,
+        'seminars_count': seminars_count,
         'faculties_count': faculties_count,
         'schedules_count': schedules_count,
     }
@@ -32,29 +32,29 @@ def addCourse(request):
     return render(request, 'add_course.html')
 
 
-def addStudent(request):
+def addSeminar(request):
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
-        saveStudent = Student(first_name=first_name, last_name=last_name)
-        saveStudent.save()
+        saveSeminar = Seminar(first_name=first_name, last_name=last_name)
+        saveSeminar.save()
         messages.info(request, 'Added Successfully!')
 
-    return render(request, 'add_student.html')
+    return render(request, 'add_seminar.html')
 
 
-def addFaculty(request):
+def addWorkshop(request):
     subjectOptions = Course.objects.all()
 
     if request.method == 'POST':
         first_name = request.POST['first_name']
         last_name = request.POST['last_name']
         subject_handled = request.POST['subject_handled']
-        saveFaculty = Faculty(first_name=first_name, last_name=last_name, subject_handled=subject_handled)
-        saveFaculty.save()
+        saveWorkshop = Workshop(first_name=first_name, last_name=last_name, subject_handled=subject_handled)
+        saveWorkshop.save()
         messages.info(request, 'Added Successfully!')
 
-    return render(request, 'add_faculty.html', {'subjectOptions': subjectOptions})
+    return render(request, 'add_workshop.html', {'subjectOptions': subjectOptions})
 
 
 def addSchedule(request):
@@ -83,28 +83,28 @@ def viewCourse(request):
     return render(request, 'view_course.html', context)
 
 
-def viewStudent(request):
-    students = Student.objects.all()
-    studentFilter = StudentFilter(request.GET, queryset=students)
-    students = studentFilter.qs
+def viewSeminar(request):
+    seminars = Seminar.objects.all()
+    seminarFilter = SeminarFilter(request.GET, queryset=seminars)
+    seminars = seminarFilter.qs
 
     context = {
-        'students': students,
-        'studentFilter': studentFilter
+        'seminars': seminars,
+        'seminarFilter': seminarFilter
     }
-    return render(request, 'view_student.html', context)
+    return render(request, 'view_seminar.html', context)
 
 
-def viewFaculty(request):
-    faculties = Faculty.objects.all()
-    facultyFilter = FacultyFilter(request.GET, queryset=faculties)
-    faculties = facultyFilter.qs
+def viewWorkshop(request):
+    faculties = Workshop.objects.all()
+    workshopFilter = WorkshopFilter(request.GET, queryset=faculties)
+    faculties = workshopFilter.qs
 
     context = {
         'faculties': faculties,
-        'facultyFilter': facultyFilter
+        'workshopFilter': workshopFilter
     }
-    return render(request, 'view_faculty.html', context)
+    return render(request, 'view_workshop.html', context)
 
 
 def viewSchedule(request):
@@ -124,20 +124,20 @@ def editCourse(request, courseId):
     return render(request, 'edit_course.html', {'courseItem': courseItem})
 
 
-def editStudent(request, studentId):
-    studentItem = Student.objects.get(id=studentId)
-    return render(request, 'edit_student.html', {'studentItem': studentItem})
+def editSeminar(request, seminarId):
+    seminarItem = Seminar.objects.get(id=seminarId)
+    return render(request, 'edit_seminar.html', {'seminarItem': seminarItem})
 
 
-def editFaculty(request, facultyId):
+def editWorkshop(request, workshopId):
     subjectOptions = Course.objects.all()
-    facultyItem = Faculty.objects.get(id=facultyId)
+    workshopItem = Workshop.objects.get(id=workshopId)
 
     context = {
-        'facultyItem': facultyItem,
+        'workshopItem': workshopItem,
         'subjectOptions': subjectOptions
     }
-    return render(request, 'edit_faculty.html', context)
+    return render(request, 'edit_workshop.html', context)
 
 
 def editSchedule(request, scheduleId):
@@ -161,25 +161,25 @@ def updateCourse(request, courseId):
     return redirect(viewCourse)
 
 
-def updateStudent(request, studentId):
-    studentItem = Student.objects.get(id=studentId)
-    studentItem.first_name = request.POST['f_name']
-    studentItem.last_name = request.POST['l_name']
-    studentItem.save()
+def updateSeminar(request, seminarId):
+    seminarItem = Seminar.objects.get(id=seminarId)
+    seminarItem.first_name = request.POST['f_name']
+    seminarItem.last_name = request.POST['l_name']
+    seminarItem.save()
     messages.info(request, 'Updated Successfully!')
 
-    return redirect(viewStudent)
+    return redirect(viewSeminar)
 
 
-def updateFaculty(request, facultyId):
-    facultyItem = Faculty.objects.get(id=facultyId)
-    facultyItem.first_name = request.POST['first_name']
-    facultyItem.last_name = request.POST['last_name']
-    facultyItem.subject_handled = request.POST['subject_handled']
-    facultyItem.save()
+def updateWorkshop(request, workshopId):
+    workshopItem = Workshop.objects.get(id=workshopId)
+    workshopItem.first_name = request.POST['first_name']
+    workshopItem.last_name = request.POST['last_name']
+    workshopItem.subject_handled = request.POST['subject_handled']
+    workshopItem.save()
     messages.info(request, 'Updated Successfully!')
 
-    return redirect(viewFaculty)
+    return redirect(viewWorkshop)
 
 
 def updateSchedule(request, scheduleId):
@@ -201,20 +201,20 @@ def deleteCourse(request, courseId):
     return redirect(viewCourse)
 
 
-def deleteStudent(request, studentId):
-    studentItem = Student.objects.get(id=studentId)
-    studentItem.delete()
+def deleteSeminar(request, seminarId):
+    seminarItem = Seminar.objects.get(id=seminarId)
+    seminarItem.delete()
     messages.info(request, 'Deleted Successfully!')
 
-    return redirect(viewStudent)
+    return redirect(viewSeminar)
 
 
-def deleteFaculty(request, facultyId):
-    facultyItem = Faculty.objects.get(id=facultyId)
-    facultyItem.delete()
+def deleteWorkshop(request, workshopId):
+    workshopItem = Workshop.objects.get(id=workshopId)
+    workshopItem.delete()
     messages.info(request, 'Deleted Successfully!')
 
-    return redirect(viewFaculty)
+    return redirect(viewWorkshop)
 
 
 def deleteSchedule(request, scheduleId):

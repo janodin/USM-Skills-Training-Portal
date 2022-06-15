@@ -6,14 +6,14 @@ class CourseFilter(django_filters.FilterSet):
         model = Course
         fields = ['course_code', 'subject_title']
 
-class StudentFilter(django_filters.FilterSet):
+class SeminarFilter(django_filters.FilterSet):
     class Meta:
-        model = Student
+        model = Seminar
         fields = ['first_name', 'last_name']
 
-class FacultyFilter(django_filters.FilterSet):
+class WorkshopFilter(django_filters.FilterSet):
     class Meta:
-        model = Faculty
+        model = Workshop
         fields = ['first_name', 'last_name', 'subject_handled']
 
 class ScheduleFilter(django_filters.FilterSet):

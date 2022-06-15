@@ -15,9 +15,9 @@ class Course(models.Model):
         return self.subject_title
 
 
-class Student(models.Model):
+class Seminar(models.Model):
     class Meta:
-        verbose_name_plural = 'Student'
+        verbose_name_plural = 'Seminar'
 
     first_name = models.CharField(max_length=200, null=False, blank=False)
     last_name = models.CharField(max_length=200, null=False, blank=False)
@@ -27,9 +27,9 @@ class Student(models.Model):
         return name
 
 
-class Faculty(models.Model):
+class Workshop(models.Model):
     class Meta:
-        verbose_name_plural = 'Faculty'
+        verbose_name_plural = 'Workshop'
 
     first_name = models.CharField(max_length=200, null=False, blank=False)
     last_name = models.CharField(max_length=200, null=False, blank=False)
