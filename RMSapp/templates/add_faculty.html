@@ -1,0 +1,176 @@
+{% extends 'base.html' %}
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+{% include 'sidebar.html' %}
+
+<div class="content mt-3">
+
+    <div class="card card-body mt-3">
+        <div class="mb-3">
+            <h4 class="d-inline">ADD FACULTY</h4>
+            <a href="{% url 'view_faculty' %}" class="btn btn-sm btn-primary d-inline float-end">View Faculty</a>
+        </div>
+        {% for message in messages %}
+        <p class="alert alert-success">{{message}}</p>
+        {% endfor %}
+        <form class="card card-body" method="POST">
+            {% csrf_token %}
+            <div class="card card-body">
+                <h6 class="card-header bg-success">Personal Information</h6>
+                <div class="card-body row g-3">
+                    <div class="col-5">
+                        <label class="form-label col-form-label-sm">First Name</label>
+                        <input type="text" class="form-control form-control-sm" name="first_name" required>
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label col-form-label-sm">Last Name</label>
+                        <input type="text" class="form-control form-control-sm" name="last_name" required>
+                    </div>
+                    <div class="col-2">
+                        <label class="form-label col-form-label-sm">M.I.</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Phone Number</label>
+                        <input type="number" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Email</label>
+                        <input type="email" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Address</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Nationality</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label for="genderOption" class="form-label col-form-label-sm">Gender</label>
+                        <select id="genderOption" class="form-select form-select-sm">
+                            <option selected>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="card card-body mt-2">
+                <h6 class="card-header bg-success">Educational Background</h6>
+                <div class="card-body g-3">
+                    <div class="card card-body">
+                        <div class="row">
+                            <h6 class="">Primary</h6>
+                            <div class="col-5">
+                                <label class="form-label col-form-label-sm">School Name</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-5">
+                                <label class="form-label col-form-label-sm">School Address</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-2">
+                                <label class="form-label col-form-label-sm">School Year</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-body mt-2">
+                        <div class="row">
+                            <h6 class="">Secondary</h6>
+                            <div class="col-5">
+                                <label class="form-label col-form-label-sm">School Name</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-5">
+                                <label class="form-label col-form-label-sm">School Address</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-2">
+                                <label class="form-label col-form-label-sm">School Year</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card card-body mt-2">
+                        <div class="row">
+                            <h6 class="">Tertiary</h6>
+                            <div class="col-5">
+                                <label class="form-label col-form-label-sm">School Name</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-5">
+                                <label class="form-label col-form-label-sm">School Address</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                            <div class="col-2">
+                                <label class="form-label col-form-label-sm">School Year</label>
+                                <input type="text" class="form-control form-control-sm">
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card card-body mt-2">
+                <h6 class="card-header bg-success">Researches</h6>
+                <div class="card-body row g-3">
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Research 1</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Research 2</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Research 3</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="card card-body mt-2">
+                <h6 class="card-header bg-success">Projects</h6>
+                <div class="card-body row g-3">
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Project 1</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Project 2</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Project 3</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+            <div class="card card-body mt-2">
+                <h6 class="card-header bg-success">Subject Handled</h6>
+                <div class="card-body row g-3">
+                    <div class="col-6">
+                        <label for="subjectOption" class="form-label col-form-label-sm">Subject</label>
+                        <select id="subjectOption" class="form-select form-select-sm" name="subject_handled" required>
+                            {% for subjectOption in subjectOptions %}
+                            <option>{{subjectOption}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-sm mt-2">Add Faculty</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

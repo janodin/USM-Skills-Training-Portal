@@ -1,0 +1,116 @@
+{% extends 'base.html' %}
+{% block title %}Add Student{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+{% include 'sidebar.html' %}
+
+<div class="content mt-3">
+
+    <div class="card card-body mt-3">
+        <div class="mb-3">
+            <h4 class="d-inline">ADD STUDENT</h4>
+            <a href="{% url 'view_student' %}" class="btn btn-sm btn-primary d-inline float-end">View Student</a>
+        </div>
+         {% for message in messages %}
+        <p class="alert alert-success">{{message}}</p>
+        {% endfor %}
+        <form class="card card-body" method="POST">
+            {% csrf_token %}
+            <div class="card card-body">
+                <h6 class="card-header bg-success">Student Profile</h6>
+                <div class="card-body row g-3">
+                    <div class="col-5">
+                        <label class="form-label col-form-label-sm">First Name</label>
+                        <input type="text" class="form-control form-control-sm" name="first_name">
+                    </div>
+                    <div class="col-5">
+                        <label class="form-label col-form-label-sm">Last Name</label>
+                        <input type="text" class="form-control form-control-sm" name="last_name">
+                    </div>
+                    <div class="col-2">
+                        <label class="form-label col-form-label-sm">M.I.</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Student ID Number</label>
+                        <input type="number" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">GLT Result</label>
+                        <input type="number" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="studentOption" class="form-label col-form-label-sm">Student Type</label>
+                        <select id="studentOption" class="form-select form-select-sm">
+                            <option selected>Choose...</option>
+                            <option>New Freshman</option>
+                            <option>Transferee</option>
+                            <option>Old-Continuing</option>
+                            <option>Old-Returning</option>
+                        </select>
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div class="card card-body mt-2">
+                <h6 class="card-header bg-success">Student Personal Information</h6>
+                <div class="card-body row g-3">
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Birth Date</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Birth Place</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label for="genderOption" class="form-label col-form-label-sm">Gender</label>
+                        <select id="genderOption" class="form-select form-select-sm">
+                            <option selected>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label for="civilStatusOption" class="form-label col-form-label-sm">Civil Status</label>
+                        <select id="civilStatusOption" class="form-select form-select-sm">
+                            <option selected>Choose...</option>
+                            <option>Single</option>
+                            <option>Married</option>
+                        </select>
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Nationality</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Tribe</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label col-form-label-sm">Religious Affiliation</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card card-body mt-2">
+                <h6 class="card-header bg-success">Enroll Subject</h6>
+                <div class="card-body row g-3">
+                    <div class="col-4">
+                        <label class="form-label col-form-label-sm">Subject</label>
+                        <input type="text" class="form-control form-control-sm">
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary btn-sm mt-2">Add Student</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}

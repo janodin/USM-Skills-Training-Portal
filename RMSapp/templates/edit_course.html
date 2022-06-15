@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% block title %}Edit Course{% endblock %}
+
+{% block content %}
+
+{% include 'navbar.html' %}
+{% include 'sidebar.html' %}
+
+
+<div class="content mt-3">
+
+    <div class="card card-body mt-3">
+        <div class="mb-3">
+            <h4 class="d-inline">EDIT COURSE</h4>
+        </div>
+
+        <form class="card card-body" action="{% url 'update_course' courseItem.id %}" method="POST">
+            {% csrf_token %}
+
+            <h6 class="card-header bg-success">Editting Course</h6>
+            <div class="card-body row g-3">
+                <div class="col-12">
+                    <label class="form-label col-form-label-sm">Course Code</label>
+                    <input type="text" class="form-control form-control-sm" value="{{courseItem.course_code}}"
+                           name="course_code">
+                </div>
+                <div class="col-12">
+                    <label class="form-label col-form-label-sm">Subject Title</label>
+                    <input type="text" class="form-control form-control-sm" value="{{courseItem.subject_title}}"
+                           name="subject_title">
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-sm mt-2">Update Course</button>
+        </form>
+    </div>
+</div>
+
+{% endblock %}
